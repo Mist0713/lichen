@@ -2,8 +2,8 @@
 lichenAddPoints 1.0.0 ver
 '''
 
-from tabulate import tabulate
-import csv
+from tabulate import tabulate #출력 형식
+import csv                    #csv 변환
 
 '''
 lichens = [
@@ -118,6 +118,8 @@ lichens = [
 ]
 '''
 
+#지역 번호, 지역명
+
 regions=[
     [0, "없음"],
     [1, "설악산"],
@@ -153,6 +155,7 @@ regions=[
     [31, "가야산"],
     [32, "황병산"]
 ]
+
 
 print(tabulate(regions, headers=["regionNumber", "regionName"], tablefmt='firstrow'))
 
