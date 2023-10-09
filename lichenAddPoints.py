@@ -161,6 +161,7 @@ print(tabulate(regions, headers=["regionNumber", "regionName"], tablefmt='firstr
 
 print("Notice | 지역 번호가 없을시 0을 기입해야함.")
 
+#지역 리스트 초기화
 region = []
 numberOfRegionInput = 0
 def regionInput():
@@ -183,6 +184,8 @@ def regionInput():
         numberOfRegionInput -= 1
         regionInput()
 
+
+# 지역 입력 확인
 def checkRegionInput(): # boolean 반환
     global numberOfRegionInput
     try:
@@ -201,6 +204,8 @@ def checkRegionInput(): # boolean 반환
         print("Notice | 올바른 값을 입력해주세요")
         checkRegionInput()
 
+
+# 고도 입력 확인
 def checkAltitudeInput(): # boolean 반환
     try:
         print("지금 이 값으로 고도를 정할까요? [y/n]", end=" ")
@@ -217,6 +222,8 @@ def checkAltitudeInput(): # boolean 반환
         print("Notice | 올바른 값을 입력해주세요")
         checkAltitudeInput()
 
+
+#고도 입력
 def altitudeInput():
     global altitude
     try:
@@ -236,6 +243,7 @@ def altitudeInput():
 
 #---------------------------------------    입력   ------------------------------------
 
+#지역 입력 실행
 regionInput()
 print("입력된 지역 : ", *region)
 while True:
@@ -245,6 +253,8 @@ while True:
         region = []
         regionInput()
         print("입력된 지역 : ", *region)
+
+#고도 입력 실행
 print("Notice | 고도는 한 곳만 입력해주세요")
 altitudeInput()
 if altitude == -1:
@@ -269,10 +279,12 @@ read = csv.reader(file)
 
 lichenList = []
 
+#자료형 숫자에서 문자로 변환
 for i in range(len(region)):
     region[i] = str(region[i])
 altitude = str(altitude)
 
+#csv 파일과 정보 비교, 참,거짓값 출력
 for line in read:
     lichenList.append(line)
 AddPoints = [[False]*5 for _ in range(100)]
